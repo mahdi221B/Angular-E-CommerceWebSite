@@ -1,0 +1,26 @@
+<!-- <h1>{{title}}</h1>
+<table *ngFor="let prod of listProdcut">
+    <tr>
+        <td>Product number {{ prod.id }}</td>
+        <td>{{ prod.title }}</td>
+        <td>{{ prod.price }}</td>
+        <td>{{ prod.quantity }}</td>
+        <td>{{ prod.like }}</td>
+    </tr>
+    <tr>
+        <td>Product number {{ prod.id }}</td>
+        <td>{{ prod.title }}</td>
+        <td>{{ prod.price }}</td>
+        <td>{{ prod.quantity }}</td>
+        <td>{{ prod.like }}</td>
+    </tr>
+</table> -->
+
+<div class="card" style="width: 18rem;" *ngFor="let prod of listProdcut">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ prod.title }}</h5>
+      <p class="card-text">Boostrap Price {{ prod.price }} & Quantity {{ prod.quantity }}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
