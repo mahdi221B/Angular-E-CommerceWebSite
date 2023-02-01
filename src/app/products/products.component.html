@@ -15,12 +15,20 @@
         <td>{{ prod.like }}</td>
     </tr>
 </table> -->
-
-<div class="card" style="width: 18rem;" *ngFor="let prod of listProdcut">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{ prod.title }}</h5>
-      <p class="card-text">Boostrap Price {{ prod.price }} & Quantity {{ prod.quantity }}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
+<h1>{{message}}</h1>
+<input type="number" name="price" [(ngModel)]="priceMax">
+<div class="row">
+        <div class="col -md -4" style="width: 18rem;" *ngFor="let prod of listProdcut,let i= index">
+            <div *ngIf="prod.price<priceMax || priceMax==null ">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Title:{{ prod.title }}</h5>
+                <p class="card-text">Likes: {{ prod.like }}</p>
+                <p class="card-text">Quantity: {{ prod.quantity }}</p>
+                <p class="card-text">Price: {{ prod.price }}</p>
+                <button class="btn btn-primary" (click)="Like(i)">Like</button>
+                <button class="btn btn-primary" (click)="buy(i)"[disabled]="prod.quantity==0">Buy</button>
+                </div>
+            </div>
+        </div>        
+</div>
