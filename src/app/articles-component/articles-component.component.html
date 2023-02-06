@@ -1,0 +1,15 @@
+<h1>{{titre}}</h1>
+<h3>Le nombre total des articles affiché: </h3>
+
+<input type="string" name="price" value={{count()}}>
+<div *ngFor="let article of listArticles,let i= index">
+    <div *ngIf="article.categorie != 'Travain' || article.categorie ==null ">
+        <fieldset [ngStyle]="{'background-color':article.categorie === 'Education' ? 'blue' : null}">
+            <legend>{{ article.titre }}</legend>
+            <p>Auteur:{{ article.auteur }}</p>
+            <p>Date: {{ article.date }}</p>
+            <p>Contenu: {{ article.contenu }}</p>
+        </fieldset>
+    </div>
+</div>
+
