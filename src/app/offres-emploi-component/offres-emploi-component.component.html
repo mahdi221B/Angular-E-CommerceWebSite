@@ -1,4 +1,6 @@
 <p>offres-emploi-component works!</p>
+<h3>Add Offer</h3>
+<button class="btn btn-info" [routerLink]="['/offers/add']"> Add Offer</button>
 <h1>Chercher:</h1>
 <input type="string" name="price" [(ngModel)]="nomEntreprise">
 <table *ngFor="let emp of listEmploi,let i= index">

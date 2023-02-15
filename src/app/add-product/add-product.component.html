@@ -1,29 +1,56 @@
-
 <form #f="ngForm">
     <div class="form-group">
         <label for="id">Id</label>
-        <input type="text" class="form-control" name="id" placeholder="Enter id" [(ngModel)]="product.id" required minlength="1" #test="ngModel">
+        <input type="text" class="form-control" name="id" placeholder="Enter id" [(ngModel)]="product.id" required minlength="3" #test="ngModel">
+      </div>
+      <div *ngIf="test.invalid && (test.dirty || test.touched)" class="alert alert-danger">
+        <div *ngIf="test.errors?.['required']">
+            <p class="text-danger">Id is required</p>
+        </div>
+        <div *ngIf="test.errors?.['minlength']">
+            <p class="text-danger">Must be at least 4 characters long</p>
+        </div>
       </div>
     <div class="form-group">
       <label for="title">title</label>
-      <input type="text" class="form-control" name="title" placeholder="Enter Title" [(ngModel)]="product.title">
+      <input type="text" class="form-control" name="title" placeholder="Enter Title" [(ngModel)]="product.title" required #testtitle="ngModel">
     </div>
+    <div *ngIf="testtitle.invalid && (testtitle.dirty || testtitle.touched)" class="alert alert-danger">
+        <div *ngIf="testtitle.errors?.['required']">
+            <p class="text-danger">Id is required</p>
+        </div>
+        <div *ngIf="testtitle.errors?.['minlength']">
+            <p class="text-danger">Must be at least 4 characters long</p>
+        </div>
+      </div>
     <div class="form-group">
       <label for="price">Price</label>
-      <input type="text price" class="form-control" name="price" placeholder="Enter price" [(ngModel)]="product.price">
+      <input type="text price" class="form-control" name="price" placeholder="Enter price" [(ngModel)]="product.price" required #testprice="ngModel">
     </div>
+    <div *ngIf="testprice.invalid && (testprice.dirty || testprice.touched)" class="alert alert-danger">
+        <div *ngIf="testprice.errors?.['required']">
+            <p class="text-danger">Id is required</p>
+        </div>
+        <div *ngIf="testprice.errors?.['minlength']">
+            <p class="text-danger">Must be at least 4 characters long</p>
+        </div>
+      </div>
     <div class="form-group">
         <label for="quantity">Quantity</label>
-        <input type="text" class="form-control" name="quantity" placeholder="Enter quantity" [(ngModel)]="product.quantity">
+        <input type="text" class="form-control" name="quantity" placeholder="Enter quantity" [(ngModel)]="product.quantity" required #testquantity="ngModel">
     </div>
-
-  <div *ngIf="test.errors?.['required']" >
-    <p class="text-danger">Id is required</p>
-</div>
-    <button type="submit" class="btn btn-primary" [disabled]="f.invalid == null">Submit</button>
+    <div *ngIf="testquantity.invalid && (testquantity.dirty || testquantity.touched)" class="alert alert-danger">
+        <div *ngIf="testquantity.errors?.['required']">
+            <p class="text-danger">Id is required</p>
+        </div>
+        <div *ngIf="testquantity.errors?.['minlength']">
+            <p class="text-danger">Must be at least 4 characters long</p>
+        </div>
+      </div>
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Submit</button>
   </form>
 
-{{product.id}}
+<!-- {{product.id}}
 {{product.title}}
 {{product.price}}
-{{product.quantity}}
+{{product.quantity}} -->
