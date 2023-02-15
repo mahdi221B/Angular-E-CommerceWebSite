@@ -11,6 +11,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { ProductDetailComponentComponent } from './product-detail-component/product-detail-component.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProductDetailComponentComponent } from './product-detail-component/prod
     NavBarComponent,
     NotFoundComponent,
     HomeComponent,
-    ProductDetailComponentComponent
+    ProductDetailComponentComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

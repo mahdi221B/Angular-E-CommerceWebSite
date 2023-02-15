@@ -1,0 +1,29 @@
+
+<form #f="ngForm">
+    <div class="form-group">
+        <label for="id">Id</label>
+        <input type="text" class="form-control" name="id" placeholder="Enter id" [(ngModel)]="product.id" required minlength="1" #test="ngModel">
+      </div>
+    <div class="form-group">
+      <label for="title">title</label>
+      <input type="text" class="form-control" name="title" placeholder="Enter Title" [(ngModel)]="product.title">
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="text price" class="form-control" name="price" placeholder="Enter price" [(ngModel)]="product.price">
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="text" class="form-control" name="quantity" placeholder="Enter quantity" [(ngModel)]="product.quantity">
+    </div>
+
+  <div *ngIf="test.errors?.['required']" >
+    <p class="text-danger">Id is required</p>
+</div>
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid == null">Submit</button>
+  </form>
+
+{{product.id}}
+{{product.title}}
+{{product.price}}
+{{product.quantity}}
