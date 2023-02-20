@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductDetailComponentComponent } from './product-detail-component/product-detail-component.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AddOfferComponent } from './add-offer/add-offer.component';
+import { TemplateDrivenFormComponentComponent } from './template-driven-form-component/template-driven-form-component.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AddOfferComponent } from './add-offer/add-offer.component';
     ProductDetailComponentComponent,
     AddProductComponent,
     AddOfferComponent,
+    TemplateDrivenFormComponentComponent,
   ],
   imports: [
     BrowserModule,
