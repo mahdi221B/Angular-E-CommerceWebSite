@@ -25,7 +25,7 @@ import { AddOfferComponent } from './add-offer/add-offer.component';
     HomeComponent,
     ProductDetailComponentComponent,
     AddProductComponent,
-    AddOfferComponent
+    AddOfferComponent,
   ],
   imports: [
     BrowserModule,

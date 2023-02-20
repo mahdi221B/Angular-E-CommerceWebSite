@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ETIME } from 'constants';
 //Added
 import { Products } from '../core/model/products';
+import { ProductServiceService } from '../services/product-service.service';
 
 @Component({
   selector: 'app-products',
@@ -10,19 +12,16 @@ import { Products } from '../core/model/products';
 export class ProductsComponent implements OnInit {
   title!:string;
   message!:string;
-  listProdcut!:Products[];
   priceMax!: number;
-  constructor() { }
+  count!: number;
+  listProdcut!:Products[];
+  p!:Products;
+  constructor(private service: ProductServiceService) { }
 
   ngOnInit(): void {
     this.title="yello :)";
-    this.listProdcut=[
-      {id: 1, title: "T-shirt 1", price: 18, quantity: 0, like: 0},
-      {id: 2, title: "T-shirt 2", price: 21, quantity: 10, like: 0},
-      {id: 3, title: "T-shirt 2", price: 21, quantity: 10, like: 0},
-      {id: 4, title: "T-shirt 2", price: 21, quantity: 10, like: 0},
-      {id: 5, title: "T-shirt 2", price: 21, quantity: 10, like: 0},
-      {id: 6, title: "T-shirt 3", price: 16, quantity: 8, like: 0}, ]
+    this.listProdcut=this.service.listProdcut;
+    this.count = this.service.getNumberOf(this.listProdcut,'quantity',10);
   }
 
   buy(i:number){
@@ -34,5 +33,6 @@ export class ProductsComponent implements OnInit {
       this.listProdcut[i].like += 1;
       this.message = "BOUGHT";
   }
+   //function  getNumberOf  
 
 }
