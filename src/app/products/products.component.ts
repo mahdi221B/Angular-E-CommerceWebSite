@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ETIME } from 'constants';
 //Added
 import { Products } from '../core/model/products';
+import { ConsumerProductService } from '../services/consumer-product.service';
 import { ProductServiceService } from '../services/product-service.service';
 
 @Component({
@@ -16,13 +17,17 @@ export class ProductsComponent implements OnInit {
   count!: number;
   listProdcut!:Products[];
   p!:Products;
-  constructor(private service: ProductServiceService) { }
-
+  constructor(private service: ProductServiceService, private consumerProduct:ConsumerProductService) { }
+  
   ngOnInit(): void {
     this.title="yello :)";
-    this.listProdcut=this.service.listProdcut;
+    //this.listProdcut=this.service.listProdcut;
+    this.consumerProduct.getProduct().subscribe({
+      next:(data) => this.listProdcut= data
+    });
     this.count = this.service.getNumberOf(this.listProdcut,'quantity',10);
   }
+
 
   buy(i:number){
     this.listProdcut[i].quantity -= 1;

@@ -1,0 +1,32 @@
+{
+  "Products":[
+    {
+      "id": 0,
+      "title": "T-shirt 0",
+      "price": 8,
+      "quantity": 11,
+      "like": 0
+    },
+    {
+      "id": 1,
+      "title": "T-shirt 1",
+      "price": 18,
+      "quantity": 2,
+      "like": 0
+    },
+    {
+      "id": 2,
+      "title": "T-shirt 2",
+      "price": 28,
+      "quantity": 9,
+      "like": 0
+    },
+    {
+      "id": 3,
+      "title": "T-shirt 3",
+      "price": 38,
+      "quantity": 7,
+      "like": 0
+    }
+  ]
+}
