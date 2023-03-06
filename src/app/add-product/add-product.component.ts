@@ -12,14 +12,19 @@ import { ProductServiceService } from '../services/product-service.service';
 export class AddProductComponent implements OnInit {
   product!:Products;
   listProdcut!:Products[];
-  constructor(private service:ProductServiceService,private route:Router) { }
+  constructor(private service:ProductServiceService,private route:Router, private consumerService:ConsumerProductService ) { }
 
   ngOnInit(): void {
     this.product = new Products();
   }
-
   addProduct(){
-    this.service.addProduct(this.product);
-    this.route.navigateByUrl("/products");
+    this.consumerService.addProduct(this.product).subscribe({
+      next:()=>this.route.navigateByUrl('/products')})
   }
+
+
+  // addProduct(){
+  //   this.service.addProduct(this.product);
+  //   this.route.navigateByUrl("/products");
+  // }
 }

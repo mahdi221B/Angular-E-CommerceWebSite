@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ETIME } from 'constants';
 //Added
 import { Products } from '../core/model/products';
@@ -17,7 +18,7 @@ export class ProductsComponent implements OnInit {
   count!: number;
   listProdcut!:Products[];
   p!:Products;
-  constructor(private service: ProductServiceService, private consumerProduct:ConsumerProductService) { }
+  constructor(private service: ProductServiceService,private route:Router, private consumerProduct:ConsumerProductService) { }
   
   ngOnInit(): void {
     this.title="yello :)";
@@ -27,8 +28,11 @@ export class ProductsComponent implements OnInit {
     });
     this.count = this.service.getNumberOf(this.listProdcut,'quantity',10);
   }
-
-
+  deleteProduct(id:number){
+    this.consumerProduct.deleteProduct(id).subscribe({
+      next : () => this.listProdcut = this.listProdcut.filter((p)=>p.id != id)
+    })
+  }
   buy(i:number){
     this.listProdcut[i].quantity -= 1;
     // this.listProdcut[i].quantity--;
